@@ -229,7 +229,7 @@ case "edit":
 				"date" =>date( "Y.m.d G:i:s", $data['createdon'] )
 				);
 			
-			// фотография
+			// photo
 			if ($jquery == 1) $modx->regClientStartupScript("assets/js/jquery.min.js");
 			$modx->regClientStartupScript('<script language="JavaScript" type="text/javascript">
 			function ItemAjax(act, id, elementID){

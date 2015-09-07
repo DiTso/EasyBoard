@@ -1,5 +1,5 @@
 /**
- * Easy Board
+ * easy_board
  *
  * Easy Board ver 1.05 - Bulletin board
  *

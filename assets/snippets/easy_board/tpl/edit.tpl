@@ -11,7 +11,7 @@
 <table class="eb-table" border="0"><tr>
 <td valign="top">
 	<div>
-		<p>heading:</p>
+		<p>Category:</p>
 		<select name="parent">
 			[+parentIds+]				
 		</select>

@@ -17,8 +17,8 @@ $_lang['eb_photoaddlimit'] = "<br/>File size must not exceed ";
 
 // pagination
 $_lang['eb_pagination'] = "page: [+boardPage+] of [+boardPages+]. Total ads in the database [+boardCol+] <br/><br/><ul>";
-$_lang['eb_paginationprevious'] = "<< предыдущая";
-$_lang['eb_paginationnext'] = "следующая >>";
+$_lang['eb_paginationprevious'] = "<< Previous";
+$_lang['eb_paginationnext'] = "Next >>";
 
 // notice
 $_lang['eb_notice'] = "<div class=\"eb-notice\">Warning! Publication canceled. Do not fill in the required fields: <b>[+notices+]</b></div>";
