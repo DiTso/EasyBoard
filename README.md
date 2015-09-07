@@ -1,7 +1,7 @@
 EasyBoard
 EasyBoard - message board for ModX Evo
 
-# Google English Translation
+# Google Russian to English Translation
 
 ## Setting
 
