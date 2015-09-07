@@ -103,9 +103,9 @@
 	echo $template;
 	
 	echo '
-    <button class="styler" href="#" onclick="postForm(\''.$save.'\',\''.$id.'\');return false;">Сохранить</button>
+    <button class="styler" href="#" onclick="postForm(\''.$save.'\',\''.$id.'\');return false;">Save</button>
     &nbsp;&nbsp;
-    <a href="#" onclick="postForm(\'reload\',null);return false;">Отмена</a>
+    <a href="#" onclick="postForm(\'reload\',null);return false;">Cancel</a>
     ';
     break;
      
@@ -171,12 +171,12 @@
 	
 	case 'importcsvgo':
 	
-	echo "<h1>Импорт из файла csv начат - ".$_FILES['csv']['name'].".</h1>";
+	echo "<h1>Import from csv file started - ".$_FILES['csv']['name'].".</h1>";
 	if ( isset($_FILES['csv']) ){
 		if (substr($_FILES['csv']['name'], -3) === "csv"){
 			include_once($modx->config['base_path'].'assets/modules/easy_board/easy_board.import.php');
 		} else {
-			echo "<p>Неверный формат файла</p>";
+			echo "<p>Incorrect file format</p>";
 		}
 	}
 	
@@ -192,8 +192,8 @@
     }else{
     //если же модуль уже установлен, выводим его
 	echo '<br/><br/><ul class="actionButtons">
-				<li><a href="#" onclick="postForm(\'add\',null);return false;"><img src="media/style/MODxRE/images/icons/page_white_add.png" align="absmiddle"> Добавить объявление</a></li>
-				<li><a href="#" onclick="postForm(\'importcsv\',null);return false;"> Импорт из csv</a></li>
+				<li><a href="#" onclick="postForm(\'add\',null);return false;"><img src="media/style/MODxRE/images/icons/page_white_add.png" align="absmiddle"> To add an advert</a></li>
+				<li><a href="#" onclick="postForm(\'importcsv\',null);return false;"> Import from a csv</a></li>
 	</ul>';
 	
 	// Обрабатываем параметры фильтрации
@@ -239,26 +239,26 @@
 	}
 	
 	echo '
-		<input class="styler" type="text" name="filtertext" style="width:200px" value="'.$filtertext.'" placeholder="Текст для фильтрации" />
+		<input class="styler" type="text" name="filtertext" style="width:200px" value="'.$filtertext.'" placeholder="Text filtering" />
 		<select name="filter">
-			<option value=1'.$filters[0].'>по заголовку</option>
-			<option value=2'.$filters[1].'>по описанию</option>
-			<option value=3'.$filters[2].'>по имени автора</option>	
-			<option value=4'.$filters[3].'>по ID автора</option>
-			<option value=5'.$filters[4].'>по городу</option>	
-			<option value=6'.$filters[5].'>по ID города</option>	
-			<option value=7'.$filters[6].'>по рубрике</option>	
-			<option value=8'.$filters[7].'>по ID рубрики</option>			
+			<option value=1'.$filters[0].'>by title</option>
+			<option value=2'.$filters[1].'>by description</option>
+			<option value=3'.$filters[2].'>by author</option>	
+			<option value=4'.$filters[3].'>by author ID</option>
+			<option value=5'.$filters[4].'>around town</option>	
+			<option value=6'.$filters[5].'>by ID city</option>	
+			<option value=7'.$filters[6].'>by category</option>	
+			<option value=8'.$filters[7].'>Filed by ID</option>			
 		</select>
 		
 		<select name="context">
-			<option value="">Все контексты</option>';
+			<option value="">All contexts</option>';
 			foreach ($contexts as $key => $value){
 				$selected = ($context == $key) ? " selected" : "";
 				echo '<option value="'.$key.'"'.$selected.'>'.$key.'</option>';
 			}
 	echo '</select>
-		<button class="styler" href="#" onclick="postFormPag(\'1\');return false;">Фильтровать</button>
+		<button class="styler" href="#" onclick="postFormPag(\'1\');return false;">Filter</button>
     </form>';
     
 
@@ -289,12 +289,12 @@
 	$data_query = $modx->db->query($sql);
 	
 	// СТАРТ Вывод номеров страниц
-        echo "<div id=\"pagination\" class=\"paginate\">Страница: $boardPage из $boardPages. Всего объявлений в базе $boardCol <br/><br/><ul>";
-        if ($boardPage > 1) echo '<li><a href="#" onclick="postFormPag(\''.($boardPage-1).'\');return false;"><< предыдущая</a></li>';
+        echo "<div id=\"pagination\" class=\"paginate\">page: $boardPage of $boardPages. Total ads in the database $boardCol <br/><br/><ul>";
+        if ($boardPage > 1) echo '<li><a href="#" onclick="postFormPag(\''.($boardPage-1).'\');return false;"><< Previous</a></li>';
         for ($i = 1; $i <= $boardPages; $i++) 
             if ($i == $boardPage) echo '<li class="currentPage"><a class="currentPage" href="#" onclick="postFormPag(\''.$i.'\');return false;">'.$i.'</a></li>'; 
             else echo '<li><a href="#" onclick="postFormPag(\''.$i.'\');return false;">'.$i.'</a></li>';
-        if ($boardPage < $boardPages) echo ' <li><a href="#" onclick="postFormPag(\''.($boardPage+1).'\');return false;">Следующая >></a></li>';
+        if ($boardPage < $boardPages) echo ' <li><a href="#" onclick="postFormPag(\''.($boardPage+1).'\');return false;">The next >></a></li>';
         echo "</ul></div>\n";
     // ФИНИШ Вывод номеров страниц
 	
@@ -313,9 +313,9 @@
 		$template = str_replace("[+createdby+]", $data[username]." (".$data[createdby].")", $template);
 		$template = str_replace("[+theme+]", $theme, $template);
 		$data[published] = ( $data[published] == 1 ) ? 
-		'<a href="#" title="Отменить публикацию" onclick="ItemAjax(\'unpub\', \''.$data[id].'\', \'pub\');return false">
+		'<a href="#" title="unpublish" onclick="ItemAjax(\'unpub\', \''.$data[id].'\', \'pub\');return false">
 			<img style="margin-top:11px;" src="'.$modx->config['site_url'].'assets/modules/easy_board/images/published1.png" /></a>' : 
-		'<a href="#" title="Опубликовать" onclick="ItemAjax(\'pub\', \''.$data[id].'\', \'pub\');return false">
+		'<a href="#" title="Publish" onclick="ItemAjax(\'pub\', \''.$data[id].'\', \'pub\');return false">
 			<img style="margin-top:11px;" src="'.$modx->config['site_url'].'assets/modules/easy_board/images/published0.png" /></a>';
 		$template = str_replace("[+published+]", $data[published], $template);
 		$data[image] = ( $data[image] != "" ) ? '<img src="'.$modx->config['site_url'].'assets/modules/easy_board/images/image.png" />' : '';
@@ -329,17 +329,17 @@
 	
 	// СТАРТ Вывод номеров страниц
         echo "<div id=\"pagination\" class=\"paginate\"><ul>";
-        if ($boardPage > 1) echo '<li><a href="#" onclick="postFormPag(\''.($boardPage-1).'\');return false;"><< предыдущая</a></li>';
+        if ($boardPage > 1) echo '<li><a href="#" onclick="postFormPag(\''.($boardPage-1).'\');return false;"><< Previous</a></li>';
         for ($i = 1; $i <= $boardPages; $i++) 
             if ($i == $boardPage) echo '<li class="currentPage"><a class="currentPage" href="#" onclick="postFormPag(\''.$i.'\');return false;">'.$i.'</a></li>'; 
             else echo '<li><a href="#" onclick="postFormPag(\''.$i.'\');return false;">'.$i.'</a></li>';
-        if ($boardPage < $boardPages) echo ' <li><a href="#" onclick="postFormPag(\''.($boardPage+1).'\');return false;">Следующая >></a></li>';
+        if ($boardPage < $boardPages) echo ' <li><a href="#" onclick="postFormPag(\''.($boardPage+1).'\');return false;">The next >></a></li>';
         echo "</ul></div>\n";
     // ФИНИШ Вывод номеров страниц
 	
 	echo '
     <br /><br />
-    <a href="#" onclick="if(confirm(\'Вы уверены? Удаление всех записей не обратимо!\')){postForm(\'uninstall\',null)};return false;"><img src="media/style/'.$theme.'/images/icons/delete.gif" align="absmiddle" />Удалить модуль</a>
+    <a href="#" onclick="if(confirm(\'Are you sure? Delete all records not reversible!\')){postForm(\'uninstall\',null)};return false;"><img src="media/style/'.$theme.'/images/icons/delete.gif" align="absmiddle" />Remove module</a>
     ';
 	
      

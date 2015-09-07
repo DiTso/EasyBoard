@@ -11,7 +11,7 @@
     <body>
      
     <br />
-    <div class="sectionHeader">Easy Board - доска объявлений</div>
+    <div class="sectionHeader">Easy Board - Bulletin board</div>
      
     <div class="sectionBody">
      
@@ -31,11 +31,11 @@
 		"info":     false,
 		"order": [[ 1, "desc" ]],
 		"language": {
-            "lengthMenu": "_MENU_ строк на страницу",
-            "zeroRecords": "Ничего не найдено",
-            "info": "Показана страницы _PAGE_ из _PAGES_",
-            "infoEmpty": "Нет записей",
-			"search": "Быстрая Фильтрация таблицы",
+            "lengthMenu": "_MENU_ lines per page",
+            "zeroRecords": "Nothing Found",
+            "info": "Showing page _PAGE_ из _PAGES_",
+            "infoEmpty": "No records",
+			"search": "Fast Filtering table",
             "infoFiltered": "(filtered from _MAX_ total records)"
 			}
 		} );

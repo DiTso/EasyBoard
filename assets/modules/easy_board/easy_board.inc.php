@@ -79,7 +79,7 @@ function getWebUsename ($id){
 
 function genImageForm($image, $id) {
 	global $modx;
-	$tmp = "<div id=\"picdel$id\"><p>Фотография:</p>";
+	$tmp = "<div id=\"picdel$id\"><p>photograph:</p>";
 	if ( $image == "" ) {
 		$tmp .= "<input name=\"image\" type=\"file\" />";
 		} else if ( is_file($modx->config['base_path'].$image) ){
@@ -89,11 +89,11 @@ function genImageForm($image, $id) {
 		$tmp .= "<td>$img[0]px x $img[1]px<br/>".(ceil( filesize( $modx->config['base_path'].$image ) / 1024) )." Kb<br/>";
 		$tmp .= '<ul class="actionButtons">
 		  <li id="Button1" style="margin-top:7px;">
-			<a href="#" title="Удалить" onclick="ItemAjax(\'delpic\', \''.$id.'\', \'picdel\');return false">Удалить фотографию</a>
+			<a href="#" title="Remove" onclick="ItemAjax(\'delpic\', \''.$id.'\', \'picdel\');return false">Delete photo</a>
 		  </li>
 		</ul>';
-		$tmp .= "</td></tr></table>";
-		} else $tmp .= "Фотография $image не найдена!<br/> <input name=\"image\" type=\"file\" />";
+		$tmp .= "</td></tr></photographtable>";
+		} else $tmp .= "Photo $image Found!<br/> <input name=\"image\" type=\"file\" />";
 	$tmp .= "</div>";
 	return $tmp;
 }

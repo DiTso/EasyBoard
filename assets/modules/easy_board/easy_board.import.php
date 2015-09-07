@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 		
 	function fParseCSV($f, $length, $d=";", $q='"') {
         $list = array();
@@ -38,7 +38,7 @@
     }
 	
 	
-	echo "<p>Импорт начат</p>";
+	echo "<p>Imports started</p>";
 	$csv = array();
 	$handle = fopen($_FILES['csv']['tmp_name'], "r");
 	$csvFieldName = fParseCSV($handle, 1024); // получаем имена колонок
@@ -60,8 +60,8 @@
 		$i++;
 		}
 	fclose($handle);
-	echo "<p>Парсинг файла завершен.</p>";
-	echo "<p>Записи добавлены в БД.</p>";
-	echo '<a href="#" onclick="postForm(\'reload\',null);return false;">Назад</a>';
+	echo "<p>Parsing the file is completed.</p>";
+	echo "<p>Entries are added to the database.</p>";
+	echo '<a href="#" onclick="postForm(\'reload\',null);return false;">ago</a>';
 
 ?>

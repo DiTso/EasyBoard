@@ -1,7 +1,16 @@
-<?php
+/**
+ * Easy Board
+ *
+ * Easy Board ver 1.05 - Bulletin board
+ *
+ * @category	snippet
+ * @internal	@modx_category Easy Board
+ * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
+ */
+
 if(!defined('MODX_BASE_PATH')){die('What are you doing? Get out of here!');}
 #::::::::::::::::::::::::::::::::::::::::
-# ver 1.05 - доска объявлений Easy Board 
+# Easy Board ver 1.05 - Bulletin board
 # автор - леха.com, январь 2015 
 #::::::::::::::::::::::::::::::::::::::::
 
@@ -50,4 +59,3 @@ include_once ( $snippetPath . "easy_board.inc.php");
 include ( $snippetPath . "easy_board.php");
 
 return $output;
-?>
