@@ -14,39 +14,39 @@ if(!defined('MODX_BASE_PATH')){die('What are you doing? Get out of here!');}
 # автор - леха.com, январь 2015 
 #::::::::::::::::::::::::::::::::::::::::
 
-// Значения по умолчанию
+// Default values
 $action = ( isset($action) ) ? $action : "viewboard";
-$context = ( isset($context) ) ? $context : "main";		// с каким контекстом работать
-$limit = ( isset($limit) ) ? $limit : 20; 				// лимит количества объявлений на странице
-$paginate = ( isset($paginate) ) ? $paginate : 1; 		// Выводить пагинацию или нет. "1" - выводить.
-$parent = ( isset($parent) ) ? $parent : ""; 			// id рубрики
-$recursion = ( isset($recursion) ) ? $recursion : 0;	// 1 - включая все подрубрики принадлежащие $parent, 0 - только указанные рубрики в $parent
-$parentIds = ( isset($parentIds) ) ? $parentIds : 0;	// id родителя рубрик
-$city = ( isset($city) ) ? $city : ""; 					// id города
-$cityIds = ( isset($cityIds) ) ? $cityIds : 0;			// id города
-$user = ( isset($user) ) ? $user : ""; 					// id пользователя
-$idviewurl = ( isset($idviewurl) ) ? $idviewurl : 1; 	// id страницы для полного просмотра
-$idediturl = ( isset($idediturl) ) ? $idediturl : 1; 	// id страницы для редактирования объявления
-$idafterediturl = ( isset($idafterediturl) ) ? $idafterediturl : 1; 	// id страницы куда будет перенаправлен пользователь после редактирования объявления
-$idsearchpage = ( isset($idsearchpage) ) ? $idsearchpage : 1; 	// id страницы куда отправить данные из формы поиска
-$txtedit = ( isset($txtedit) ) ? $txtedit : "[редактировать]";
-$txtdelete = ( isset($txtdelete) ) ? $txtdelete : "[удалить]";
-$published = ( isset($published) ) ? $published : 1;	// статус публикации: 1 - опубликовано, 0 - неопубликовано, "" - пустое значение, все
-$annotationlen = ( isset($annotationlen) ) ? $annotationlen : 150; // длина аннотации
-$jquery = ( isset($jquery) ) ? $jquery : 1; 			// 1 - подключить Jquery, 0 - отключить
+$context = ( isset($context) ) ? $context : "main";		// the context with which to work
+$limit = ( isset($limit) ) ? $limit : 20; 				// Limit the number of ads on the page
+$paginate = ( isset($paginate) ) ? $paginate : 1; 		// Pagination or not. "1" - remove.
+$parent = ( isset($parent) ) ? $parent : ""; 			// id category
+$recursion = ( isset($recursion) ) ? $recursion : 0;	// 1 - including all subheadings belonging $parent, 0 - only the specified column in the $parent
+$parentIds = ( isset($parentIds) ) ? $parentIds : 0;	// id parent columns
+$city = ( isset($city) ) ? $city : ""; 					// id cities
+$cityIds = ( isset($cityIds) ) ? $cityIds : 0;			// id cities
+$user = ( isset($user) ) ? $user : ""; 					// id user
+$idviewurl = ( isset($idviewurl) ) ? $idviewurl : 1; 	// id page for full view
+$idediturl = ( isset($idediturl) ) ? $idediturl : 1; 	// id page to edit ad
+$idafterediturl = ( isset($idafterediturl) ) ? $idafterediturl : 1; 	// id will be redirected to the page where the user after editing the ad
+$idsearchpage = ( isset($idsearchpage) ) ? $idsearchpage : 1; 	// id Page where to send the data from the search form
+$txtedit = ( isset($txtedit) ) ? $txtedit : "[edit]";
+$txtdelete = ( isset($txtdelete) ) ? $txtdelete : "[remove]";
+$published = ( isset($published) ) ? $published : 1;	// publication status: 1 - published, 0 - not published, "" - null, all
+$annotationlen = ( isset($annotationlen) ) ? $annotationlen : 150; // length annotations
+$jquery = ( isset($jquery) ) ? $jquery : 1; 			// 1 -hook up Jquery, 0 - отключить
 $css = ( isset($css) ) ? $css : $modx->config['site_url']."assets/snippets/easy_board/css/easy_board.css";
 $tplview = ( isset($tplview) ) ? $tplview : "";
 $tpledit = ( isset($tpledit) ) ? $tpledit : "";
 $tplviewsingle = ( isset($tplviewsingle) ) ? $tplviewsingle : "";
 $tplsearchform = ( isset($tplsearchform) ) ? $tplsearchform : "";
-$nophoto = ( isset($nophoto) ) ? $nophoto : "assets/snippets/easy_board/images/no_photo.gif"; // изображение для объявлений без фотографии
-$phpthumboption = ( isset($phpthumboption) ) ? $phpthumboption : "w=150,h=120,far=R,zc=1,bg=FFFFFF"; // опция для phpthumb
-$phpthumboptionSingle = ( isset($phpthumboptionSingle) ) ? $phpthumboptionSingle : "w=380,h=250,far=R,zc=1,bg=FFFFFF"; // опция для phpthumb при просмотре объявления
-$imagesize =  ( isset($imagesize) ) ? $imagesize : 1048576; //ограничение на размер загружаемого изображения
-$lang = ( isset($lang) ) ? $lang : "russian"; 			// Языковой пакет
-$required = ( isset($required) ) ? $required : "pagetitle,contact"; 	// Обязательные поля при добавлении нового объявления
-$filter = ( isset($filter) ) ? $filter : "";			// Дополнительная фильтрация по БД (синтаксис MySQL WHERE) Например: &filter=`sc2.pagetitle LIKE 'Я%'`
-$sort = ( isset($sort) ) ? $sort : "eb.createdon DESC";	// Сортировка объявлений (синтаксис MySQL ORDER BY)
+$nophoto = ( isset($nophoto) ) ? $nophoto : "assets/snippets/easy_board/images/no_photo.gif"; // image for ads without pictures
+$phpthumboption = ( isset($phpthumboption) ) ? $phpthumboption : "w=150,h=120,far=R,zc=1,bg=FFFFFF"; // phpthumb options
+$phpthumboptionSingle = ( isset($phpthumboptionSingle) ) ? $phpthumboptionSingle : "w=380,h=250,far=R,zc=1,bg=FFFFFF"; // phpthumb option for when viewing ads
+$imagesize =  ( isset($imagesize) ) ? $imagesize : 1048576; //a limit on the size of the loaded image
+$lang = ( isset($lang) ) ? $lang : "russian"; 			// Language Pack
+$required = ( isset($required) ) ? $required : "pagetitle,contact"; 	// Required fields when adding a new ad
+$filter = ( isset($filter) ) ? $filter : "";			// Additional filtering database (syntax MySQL WHERE) example: &filter=`sc2.pagetitle LIKE 'Я%'`
+$sort = ( isset($sort) ) ? $sort : "eb.createdon DESC";	// Sort ads (syntax MySQL ORDER BY)
 
 include($modx->config['base_path']."assets/modules/easy_board/easy_board.config.php");
 include_once($modx->config['base_path']."assets/modules/easy_board/easy_board.inc.php");
